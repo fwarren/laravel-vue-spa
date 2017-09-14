@@ -16,7 +16,7 @@
 
 ## Installation
 
-- `git clone https://github.com/cretueusebiu/laravel-vue-spa.git`
+- `git clone https://github.com/fwarren/laravel-vue-spa`
 - `cd laravel-vue-spa`
 - `cp .env.example .env`
 - `composer install`
