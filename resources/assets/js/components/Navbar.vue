@@ -1,55 +1,62 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <router-link :to="{ name: 'welcome' }" class="navbar-brand">
-        {{ appName }}
-      </router-link>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
         data-target="#navbarToggler" aria-controls="navbarToggler"
         aria-expanded="false" :aria-label="$t('toggle_navigation')"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarToggler">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li> -->
-        </ul>
-
-        <ul class="navbar-nav">
-          <!-- Authenticated -->
-          <template v-if="authenticated">
-            <router-link :to="{ name: 'settings.profile' }" tag="li" class="nav-item">
-              <a class="nav-link">
-                {{ user.name }}
-              </a>
-            </router-link>
-            <li class="nav-item">
-              <a @click.prevent="logout" href="#" class="nav-link">
-                {{ $t('logout') }}
-              </a>
-            </li>
-          </template>
-          <!-- Guest -->
-          <template v-else>
-            <li class="nav-item">
-              <router-link :to="{ name: 'login' }" class="nav-link" active-class="active">
-                {{ $t('login') }}
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link :to="{ name: 'register' }" class="nav-link" active-class="active">
-                {{ $t('register') }}
-              </router-link>
-            </li>
-          </template>
-        </ul>
-      </div>
+      <router-link :to="{ name: 'welcome' }" class="navbar-brand">
+       {{ appName }}
+      </router-link>
     </div>
-  </nav>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <!-- left hand side of navbar -->
+      <ul class="nav navbar-nav">
+        <!-- <li><a href="#">Link</a></li> -->
+      </ul>
+
+      <!-- right hand side of navbar -->
+      <ul class="nav navbar-nav navbar-right">
+        <!-- Authenticated -->
+        <template v-if="authenticated">
+          <router-link :to="{ name: 'settings.profile' }" tag="li" class="nav-item">
+            <a class="nav-link">
+              {{ user.name }}
+            </a>
+          </router-link>
+          <li class="nav-item">
+            <a @click.prevent="logout" href="#" class="nav-link">
+              {{ $t('logout') }}
+            </a>
+          </li>
+        </template>
+        <!-- Guest -->
+        <template v-else>
+          <li class="nav-item">
+            <router-link :to="{ name: 'login' }" class="nav-link" active-class="active">
+              {{ $t('login') }}
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'register' }" class="nav-link" active-class="active">
+              {{ $t('register') }}
+            </router-link>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
+</nav>
 </template>
 
 <script>

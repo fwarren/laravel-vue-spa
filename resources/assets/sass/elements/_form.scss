@@ -1,0 +1,15 @@
+.invalid-feedback {
+  color: $form-feedback-invalid-color;
+}
+
+.valid-feedback {
+  color: $form-feedback-valid-color;
+}
+
+.is-invalid {
+  border-color: $form-feedback-invalid-color;
+}
+
+.is-valid {
+  border-color: $form-feedback-valid-color;
+}
